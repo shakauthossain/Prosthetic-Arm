@@ -45,49 +45,49 @@ Table 2.2:Wire Connection
 
 2.4 Pseudocode
  
-// Include the Servo library
-Include <Servo.h>
-
-// Define Servo objects for each finger
-Servo thumbServo;
-Servo indexServo;
-Servo littleServo;
-
-// Define pin for the force sensor
-Constant int forceSensorPin = A0;
-
-// Variable to store force value
-Integer forceValue;
-
-Setup:
-  // Attach servo motors to corresponding pins
-  thumbServo.attach(2);
-  indexServo.attach(4);
-  littleServo.attach(6);
-
-  // Start serial communication for debugging
-  Serial.begin(9600);
-
-Loop:
-  // Read force value from the force sensor
-  forceValue = analogRead(forceSensorPin);
-
-  // Map force value to servo angles for each finger
-  Integer thumbAngle = map(forceValue, 0, 1023, 0, 90);
-  Integer indexAngle = map(forceValue, 0, 1023, 0, 120);
-  Integer littleAngle = map(forceValue, 0, 1023, 0, 70);
-
-  // Move the servo motors based on the mapped angles
-  thumbServo.write(thumbAngle);
-  indexServo.write(indexAngle);
-  littleServo.write(littleAngle);
-
-  // Display force value for debugging
-  Serial.print("Force Value: ");
-  Serial.println(forceValue);
-
-  // Add a delay for stability (if needed)
-  delay();
+ // Include the Servo library
+ Include <Servo.h>
+ 
+ // Define Servo objects for each finger
+ Servo thumbServo;
+ Servo indexServo;
+ Servo littleServo;
+ 
+ // Define pin for the force sensor
+ Constant int forceSensorPin = A0;
+ 
+ // Variable to store force value
+ Integer forceValue;
+ 
+ Setup:
+   // Attach servo motors to corresponding pins
+   thumbServo.attach(2);
+   indexServo.attach(4);
+   littleServo.attach(6);
+ 
+   // Start serial communication for debugging
+   Serial.begin(9600);
+ 
+ Loop:
+   // Read force value from the force sensor
+   forceValue = analogRead(forceSensorPin);
+ 
+   // Map force value to servo angles for each finger
+   Integer thumbAngle = map(forceValue, 0, 1023, 0, 90);
+   Integer indexAngle = map(forceValue, 0, 1023, 0, 120);
+   Integer littleAngle = map(forceValue, 0, 1023, 0, 70);
+ 
+   // Move the servo motors based on the mapped angles
+   thumbServo.write(thumbAngle);
+   indexServo.write(indexAngle);
+   littleServo.write(littleAngle);
+ 
+   // Display force value for debugging
+   Serial.print("Force Value: ");
+   Serial.println(forceValue);
+ 
+   // Add a delay for stability (if needed)
+   delay();
 
 3. Expected Results
 The prosthetic hand is designed for a physically impaired person, who is needed of a hand. The expectation of this project is to make a person able to work as a regular person even if he is impaired. In this project, I am able to complete and meet my expectations. The sensor can easily take data and divert it in to servo motor to the hand fingers using the microcontroller, Arduino Nano. The servo motors are rotating according to the force which is taken from the force sensor. There are some images given below;
